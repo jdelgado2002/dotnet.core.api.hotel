@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NJsonSchema;
+using NSwag.AspNetCore;
 
 namespace Hotel
 {
@@ -36,6 +38,10 @@ namespace Hotel
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwaggerUi3WithApiExplorer(options =>
+                {
+                    options.GeneratorSettings.DefaultPropertyNameHandling = NJsonSchema.PropertyNameHandling.CamelCase;
+                });
             }
             else
             {
