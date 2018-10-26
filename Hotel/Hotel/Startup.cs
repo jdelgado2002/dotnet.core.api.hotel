@@ -43,6 +43,8 @@ namespace Hotel
                 options.ReportApiVersions = true;
                 options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options);
             });
+            //docs.asp.net - todo: set a domain to allowOrigin instead of allowing all origins.
+            services.AddCors(options => { options.AddPolicy("AllowUI", policy => policy.AllowAnyOrigin()); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +64,7 @@ namespace Hotel
             });
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowUI");
             app.UseMvc();
         }
     }
