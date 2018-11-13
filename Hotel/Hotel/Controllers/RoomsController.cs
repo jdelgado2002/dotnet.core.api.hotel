@@ -22,7 +22,6 @@ namespace Hotel.Controllers
                 version = HttpContext.ApiVersionProperties().ApiVersion.MajorVersion + "." + HttpContext.ApiVersionProperties().ApiVersion.MinorVersion
 
             };
-
             return Ok(response);
         }
     }
