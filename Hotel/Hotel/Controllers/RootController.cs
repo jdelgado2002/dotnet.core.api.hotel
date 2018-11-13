@@ -21,6 +21,10 @@ namespace Hotel.Controllers
                 rooms = new
                 {
                     href = Url.Link(nameof(RoomsController.GetRooms), null)
+                },
+                Info = new
+                {
+                    href = Url.Link(nameof(InfoController.GetHotelInfo), null)
                 }
             };
 

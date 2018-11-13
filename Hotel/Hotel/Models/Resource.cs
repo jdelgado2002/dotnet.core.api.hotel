@@ -10,5 +10,6 @@ namespace Hotel.Models
     {
         [JsonProperty(Order = -2)]
         public string Href { get; set; }
+        public string version { get; set; }
     }
 }
